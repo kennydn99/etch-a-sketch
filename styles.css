@@ -1,15 +1,12 @@
-body {
-    display: flex;
-}
 .container {
     border: 2px black solid;
     display: flex;
     flex-wrap: wrap;
-    flex-basis: 960px;
+    width: 800px;
+    height: 800px;
 }
 
 .square {
     border: 1px red solid;
-    width: 16px;
-    height: 16px;
+    box-sizing: border-box;
 }
