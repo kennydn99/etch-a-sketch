@@ -13,3 +13,14 @@ function createGrid(num) {
         }
     }
 };
+
+createGrid(16);
+
+let squareColor = "black";
+
+const allSquares = grid.querySelectorAll('div.square');
+allSquares.forEach((item) => {
+    item.addEventListener('mouseenter', () => {
+        item.style.backgroundColor = squareColor;
+    });
+});
