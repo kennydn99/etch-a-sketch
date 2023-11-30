@@ -1,0 +1,15 @@
+body {
+    display: flex;
+}
+.container {
+    border: 2px black solid;
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 960px;
+}
+
+.square {
+    border: 1px red solid;
+    width: 16px;
+    height: 16px;
+}
