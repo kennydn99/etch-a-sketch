@@ -18,12 +18,16 @@ createGrid(16);
 
 let squareColor = "black";
 
-const allSquares = grid.querySelectorAll('div.square');
-allSquares.forEach((item) => {
-    item.addEventListener('mouseenter', () => {
-        item.style.backgroundColor = squareColor;
+let setHover = function (color) {
+    let allSquares = grid.querySelectorAll('div.square');
+    allSquares.forEach((item) => {
+        item.addEventListener('mouseenter', () => {
+            item.style.backgroundColor = color;
+        });
     });
-});
+};
+
+setHover(squareColor);
 
 //clear grid function
 let clearBtn = document.querySelector('#clear-btn');
@@ -33,11 +37,23 @@ let clearGrid = function () {
         box.remove();
     });
 };
-
 clearBtn.addEventListener('click', clearGrid);
 
-
 let gridSizeBtn = document.querySelector('#grid-size-btn');
-//prompt for numSquaresPerSide
-//clear grid
-//create new grid
+
+gridSizeBtn.addEventListener('click', () => {
+    let newNumOfSquaresPerSide;
+    do {
+        let selection = prompt("Pick a number of squares per side for the grid! Pick from 1-100");
+        if (selection === null) {
+            break;
+        }
+        newNumOfSquaresPerSide = parseInt(selection, 10);
+    } while (newNumOfSquaresPerSide < 1 || newNumOfSquaresPerSide > 100 || isNaN(newNumOfSquaresPerSide));
+    
+    if (selection !== null) {
+        clearGrid();
+        createGrid(newNumOfSquaresPerSide);
+        setHover(squareColor);
+    }
+});
