@@ -24,3 +24,20 @@ allSquares.forEach((item) => {
         item.style.backgroundColor = squareColor;
     });
 });
+
+//clear grid function
+let clearBtn = document.querySelector('#clear-btn');
+let clearGrid = function () {
+    let currentSquares = document.querySelectorAll('div.square');
+    currentSquares.forEach((box) => {
+        box.remove();
+    });
+};
+
+clearBtn.addEventListener('click', clearGrid);
+
+
+let gridSizeBtn = document.querySelector('#grid-size-btn');
+//prompt for numSquaresPerSide
+//clear grid
+//create new grid
