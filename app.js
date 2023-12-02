@@ -20,7 +20,7 @@ let removeGrid = function () {
     });
 };
 
-let setHover = function () {
+let setHover = function () {  
     let allSquares = grid.querySelectorAll('div.square');
     allSquares.forEach((item) => {
         item.addEventListener('mouseenter', () => {
@@ -28,10 +28,11 @@ let setHover = function () {
                 let randomColor = Math.floor(Math.random()*16777215).toString(16);
                 item.style.backgroundColor = "#" + randomColor;
             } else {
-                item.style.backgroundColor = squareColor;
+                item.style.backgroundColor = `black`;
             }
         });
     });
+    
 };
 
 let clearBtn = document.querySelector('#clear-btn');
@@ -69,6 +70,5 @@ bwBtn.addEventListener('click', () => isRGBmode = false);
 
 //initialize grid to 16x16 when page loads
 let numSquaresPerSide = 16;
-let squareColor = "black";
 createGrid(16);
-setHover(squareColor);
+setHover();

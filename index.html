@@ -5,18 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-a-Sketch</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.cdnfonts.com/css/60s-scoreboard" rel="stylesheet">
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/60s-scoreboard');
+    </style>
     <script src="app.js" defer></script>
 </head>
 <body>
-    <div class="header">
-        <h1>Etch-a-Sketch</h1>
-        <div class="btn-container">
-            <button id="grid-size-btn" class="control-btn">Grid Size</button>
-            <button id="clear-btn" class="control-btn">Clear</button>
-            <button id="rgb-btn" class="control-btn">RGB Mode</button>
-            <button id="bw-btn" class="control-btn">Black/White Mode</button>
+    <div class="wrapper">
+        <div class="header">
+            <div class="title">Etch-a-Sketch</div>
+            <div class="btn-container">
+                <button id="grid-size-btn" class="control-btn">Grid Size</button>
+                <button id="clear-btn" class="control-btn">Clear</button>
+                <button id="rgb-btn" class="control-btn">RGB Mode</button>
+                <button id="bw-btn" class="control-btn">Black/White Mode</button>
+            </div>
         </div>
+        <div class="container"></div>
     </div>
-    <div class="container"></div>
 </body>
 </html>

@@ -1,12 +1,61 @@
+* {
+    font-family: '60s Scoreboard', sans-serif;
+    color: #494949;
+}
+
+body {
+    background: #faf6e9;
+}
+
+.title {
+    font-size: 48px;
+    font-weight: bolder;
+}
+
 .container {
     border: 2px black solid;
     display: flex;
     flex-wrap: wrap;
     width: 650px;
     height: 650px;
+    margin-top: 16px;
+    background: white;
 }
 
 .square {
     border: 1px grey solid;
     box-sizing: border-box;
+}
+
+.wrapper, .header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    gap: 12px;
+    width: 650px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-evenly;
+    width: 650px;
+    margin-bottom: 12px;
+}
+
+.control-btn {
+    background: #ece8d9;
+    padding: 8px;
+    box-shadow: #494947 4px 4px;
+    font-weight: bold;
+}
+
+.control-btn:hover {background-color: #fffdf6}
+
+.control-btn:active {
+    background-color: #fffdf6;
+    transform: translateY(2px);
+    transform: translateX(1px);
 }
