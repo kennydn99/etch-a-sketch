@@ -1,10 +1,5 @@
 let grid = document.querySelector('.container');
-
-//initialize grid to 16x16 when page loads
-let numSquaresPerSide = 16;
-let squareColor = "black";
-createGrid(16);
-setHover(squareColor);
+let isRGBmode = false;
 
 function createGrid(num) {
     let squareLength = grid.clientWidth / num;
@@ -25,11 +20,16 @@ let removeGrid = function () {
     });
 };
 
-function setHover(color) {
+let setHover = function () {
     let allSquares = grid.querySelectorAll('div.square');
     allSquares.forEach((item) => {
         item.addEventListener('mouseenter', () => {
-            item.style.backgroundColor = color;
+            if(isRGBmode) {
+                let randomColor = Math.floor(Math.random()*16777215).toString(16);
+                item.style.backgroundColor = "#" + randomColor;
+            } else {
+                item.style.backgroundColor = squareColor;
+            }
         });
     });
 };
@@ -55,8 +55,20 @@ gridSizeBtn.addEventListener('click', () => {
         } else if (!invalidInput) {
             removeGrid();
             createGrid(newNumOfSquaresPerSide);
-            setHover(squareColor);
+            setHover();
         }
     } while (invalidInput);
 });
 
+let rgbBtn = document.querySelector('#rgb-btn');
+rgbBtn.addEventListener('click', () => isRGBmode = true);
+
+let bwBtn = document.querySelector('#bw-btn');
+bwBtn.addEventListener('click', () => isRGBmode = false);
+
+
+//initialize grid to 16x16 when page loads
+let numSquaresPerSide = 16;
+let squareColor = "black";
+createGrid(16);
+setHover(squareColor);
