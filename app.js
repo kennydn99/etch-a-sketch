@@ -42,18 +42,18 @@ clearBtn.addEventListener('click', clearGrid);
 let gridSizeBtn = document.querySelector('#grid-size-btn');
 
 gridSizeBtn.addEventListener('click', () => {
-    let newNumOfSquaresPerSide;
+    let newNumOfSquaresPerSide, invalidInput;
     do {
         let selection = prompt("Pick a number of squares per side for the grid! Pick from 1-100");
+        newNumOfSquaresPerSide = parseInt(selection, 10);
+        invalidInput = (newNumOfSquaresPerSide < 1 || newNumOfSquaresPerSide > 100 || isNaN(newNumOfSquaresPerSide));
         if (selection === null) {
             break;
+        } else if (!invalidInput) {
+            console.log(newNumOfSquaresPerSide);
+            clearGrid();
+            createGrid(newNumOfSquaresPerSide);
+            setHover(squareColor);
         }
-        newNumOfSquaresPerSide = parseInt(selection, 10);
-    } while (newNumOfSquaresPerSide < 1 || newNumOfSquaresPerSide > 100 || isNaN(newNumOfSquaresPerSide));
-    
-    if (selection !== null) {
-        clearGrid();
-        createGrid(newNumOfSquaresPerSide);
-        setHover(squareColor);
-    }
+    } while (invalidInput);
 });
