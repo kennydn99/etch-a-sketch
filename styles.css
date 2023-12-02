@@ -20,6 +20,7 @@ body {
     height: 650px;
     margin-top: 16px;
     background: white;
+    box-shadow: #494947 4px 4px;
 }
 
 .square {

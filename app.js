@@ -26,13 +26,12 @@ let setHover = function () {
         item.opacity = 0.1;
         item.addEventListener('mouseenter', () => {
             if(isRGBmode) {
-                let randomColor = Math.floor(Math.random()*16777215).toString(16);
-                item.style.backgroundColor = "#" + randomColor;
+                item.style.backgroundColor = `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${item.opacity})`;
             } else {
                 item.style.backgroundColor = `rgba(0, 0, 0, ${item.opacity})`;
-                item.opacity += 0.1;
             }
-
+            item.opacity += 0.1;
+            
         });
     });
     
