@@ -25,7 +25,7 @@ let removeGrid = function () {
     });
 };
 
-let setHover = function (color) {
+function setHover(color) {
     let allSquares = grid.querySelectorAll('div.square');
     allSquares.forEach((item) => {
         item.addEventListener('mouseenter', () => {
