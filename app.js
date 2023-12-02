@@ -1,6 +1,10 @@
 let grid = document.querySelector('.container');
 
+//initialize grid to 16x16 when page loads
 let numSquaresPerSide = 16;
+let squareColor = "black";
+createGrid(16);
+setHover(squareColor);
 
 function createGrid(num) {
     let squareLength = grid.clientWidth / num;
@@ -14,9 +18,12 @@ function createGrid(num) {
     }
 };
 
-createGrid(16);
-
-let squareColor = "black";
+let removeGrid = function () {
+    let currentSquares = document.querySelectorAll('div.square');
+    currentSquares.forEach((box) => {
+        box.remove();
+    });
+};
 
 let setHover = function (color) {
     let allSquares = grid.querySelectorAll('div.square');
@@ -27,20 +34,16 @@ let setHover = function (color) {
     });
 };
 
-setHover(squareColor);
-
-//clear grid function
 let clearBtn = document.querySelector('#clear-btn');
 let clearGrid = function () {
     let currentSquares = document.querySelectorAll('div.square');
     currentSquares.forEach((box) => {
-        box.remove();
+        box.style.backgroundColor = "white";
     });
 };
 clearBtn.addEventListener('click', clearGrid);
 
 let gridSizeBtn = document.querySelector('#grid-size-btn');
-
 gridSizeBtn.addEventListener('click', () => {
     let newNumOfSquaresPerSide, invalidInput;
     do {
@@ -50,10 +53,10 @@ gridSizeBtn.addEventListener('click', () => {
         if (selection === null) {
             break;
         } else if (!invalidInput) {
-            console.log(newNumOfSquaresPerSide);
-            clearGrid();
+            removeGrid();
             createGrid(newNumOfSquaresPerSide);
             setHover(squareColor);
         }
     } while (invalidInput);
 });
+
