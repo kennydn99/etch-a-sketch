@@ -20,16 +20,19 @@ let removeGrid = function () {
     });
 };
 
-let setHover = function () {  
+let setHover = function () {
     let allSquares = grid.querySelectorAll('div.square');
     allSquares.forEach((item) => {
+        item.opacity = 0.1;
         item.addEventListener('mouseenter', () => {
             if(isRGBmode) {
                 let randomColor = Math.floor(Math.random()*16777215).toString(16);
                 item.style.backgroundColor = "#" + randomColor;
             } else {
-                item.style.backgroundColor = `black`;
+                item.style.backgroundColor = `rgba(0, 0, 0, ${item.opacity})`;
+                item.opacity += 0.1;
             }
+
         });
     });
     
@@ -39,6 +42,7 @@ let clearBtn = document.querySelector('#clear-btn');
 let clearGrid = function () {
     let currentSquares = document.querySelectorAll('div.square');
     currentSquares.forEach((box) => {
+        box.opacity = 0.1;
         box.style.backgroundColor = "white";
     });
 };
